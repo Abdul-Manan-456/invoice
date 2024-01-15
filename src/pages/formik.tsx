@@ -20,7 +20,7 @@ const FormikData: React.FC<formikDataProps> = ({
   const { addInvoice, editInvoice, setIsInvoiceUpdated } = useInvoicesStore();
   return (
     <main
-      className="fixed space-y-4 md:top-0 top-20 md:left-24 pb-8 left-0 md:w-1/2 sm:w-3/4 w-full bg-white h-full rounded-r-lg  overflow-y-scroll no-scrollbar shadow-lg
+      className="fixed border border-black mb-40 pb-40 space-y-4 md:top-0 top-20 md:left-24 md:pb-8  left-0 md:w-1/2 sm:w-3/4 w-full bg-white h-full rounded-r-lg  overflow-y-scroll no-scrollbar shadow-lg
      dark:bg-medium "
     >
       <Formik
@@ -107,7 +107,7 @@ const FormikData: React.FC<formikDataProps> = ({
                 ) : (
                   <div></div>
                 )}
-                <div className="flex  items-center justify-between w-7/12">
+                <div className="flex  items-center justify-between md:w-7/12 w-1/2">
                   {!data ? (
                     <SaveButton
                       setFieldValue={setFieldValue}

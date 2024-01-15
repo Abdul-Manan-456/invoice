@@ -16,7 +16,7 @@ const SaveButton: React.FC<buttonProps> = ({
   disabled,
   setFieldValue,
 }) => {
-  const buttonClassName = `w-40 h-12 cursor-pointer flex items-center justify-center rounded-full font-medium text-medium text-stone-300 ${
+  const buttonClassName = `md:w-40 md:h-12 sm:w-32 sm:h-12 w-24 h-8 cursor-pointer flex items-center justify-center rounded-full md:font-medium  font-light md:text-medium sm:text-sm text-xs text-stone-300 ${
     variant === "draft"
       ? "mr-2 bg-slate-700 hover:bg-slate-900"
       : variant === "send"

@@ -47,7 +47,7 @@ const PaidButton: React.FC<paidButtonProps> = ({ dataStatus }) => {
   return (
     <div
       onClick={handlePaidInvoice}
-      className={`w-40 h-12 cursor-pointer ${alreadyPaid} flex items-center justify-center font-bold rounded-full  `}
+      className={`md:w-40 md:h-12 w-28 h-12 cursor-pointer ${alreadyPaid} flex items-center justify-center md:font-bold font-medium rounded-full md:text-base text-sm  `}
     >
       <p>Mark As Paid</p>
     </div>

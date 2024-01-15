@@ -55,14 +55,14 @@ const SingleInvoicePage: React.FC<singleInvoiceProps> = ({}) => {
     }, 0);
   return (
     <main
-      className={`flex  min-h-screen flex-col items-center justify-between p-24   dark:bg-dark dark:text-white`}
+      className={`flex min-h-screen flex-col items-center justify-between dark:bg-dark dark:text-white`}
     >
       {/* <Formik /> */}
       {isInvoiceVisible && (
         <Formik data={data} handleInvoiceVisible={handleInvoiceVisible} />
       )}
       <Navbar />
-      <div className="dark:text-white w-5/6">
+      <div className="dark:text-white text-base md:w-5/6 w-screen p-8 mt-16 md:mt-0">
         <div className="flex items-center justify-start text-slate-500 dark:text-white">
           <Link className="flex items-center" href="/">
             <Image
@@ -75,13 +75,13 @@ const SingleInvoicePage: React.FC<singleInvoiceProps> = ({}) => {
             <h3 className="cursor-pointer">Go Back</h3>
           </Link>
         </div>
-        <div className="flex items-center h-24 my-4 bg-white dark:bg-medium  p-4 rounded-lg shadow-md   justify-between">
-          <div className="flex items-center justify-start ">
+        <div className="flex  items-center h-24 my-4 bg-white dark:bg-medium  p-4 rounded-lg shadow-md   justify-between">
+          <div className="flex md:w-auto  w-full flex-row items-center md:justify-start justify-between ">
             <p className="mr-4 text-slate-500 dark:text-white">Status</p>
             <InvoiceButton status={(data && data.status) || ""} />
           </div>
 
-          <div className="flex items-center justify-end">
+          <div className="md:flex hidden items-center md:visible justify-end">
             <EditButton
               setData={setData}
               handleInvoiceVisible={handleInvoiceVisible}
@@ -107,50 +107,51 @@ const SingleInvoicePage: React.FC<singleInvoiceProps> = ({}) => {
                 <p>{data?.clientPostCode}</p>
               </div>
             </div>
-            <div className="flex items-start justify-start my-8">
-              <div>
-                <div className="mb-4 mr-36">
-                  <p className="text-sm  text-slate-500 dark:text-slate-200">
-                    invoice Date
-                  </p>
-                  <p className="text-lg font-bold my-2 dark:text-white">
-                    {data?.date}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-sm  text-slate-500 dark:text-slate-200">
-                    Payment due
-                  </p>
-                  <p className="text-lg font-bold my-2 dark:text-white">
-                    2023-04-01
-                  </p>
-                </div>
-              </div>
+            <div className="flex md:flex-row flex-col items-start justify-start md:my-8 my-4">
               {/* Bill To details */}
-              <div className=" w-44 mr-36 ">
-                <p className="text-sm  text-slate-500 dark:text-slate-200">
-                  Bill to
-                </p>
-                <p className="text-lg font-bold my-2 dark:text-white">
-                  {data?.clientName}
-                </p>
-                <p className="text-sm  text-slate-500 dark:text-slate-200">
-                  {data?.clientName}
-                  {/* <span>,</span> */}
-                </p>
-                <p className="text-sm  text-slate-500 dark:text-slate-200">
-                  {data?.clientCity}
-                </p>
-                <p className="text-sm  text-slate-500 dark:text-slate-200">
-                  {data?.clientCountry || ""}
-                </p>
+              <div className="w-full flex itmes-center justify-start">
+                <div>
+                  <div className="mb-4 mr-36">
+                    <p className="text-sm  text-slate-500 dark:text-slate-200">
+                      invoice Date
+                    </p>
+                    <p className="text-lg font-bold my-2 dark:text-white">
+                      {data?.date}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm  text-slate-500 dark:text-slate-200">
+                      Payment due
+                    </p>
+                    <p className="md:text-lg text-sm font-bold my-2 dark:text-white">
+                      2023-04-01
+                    </p>
+                  </div>
+                </div>
+                <div className="  w-44 ">
+                  <p className="text-sm  text-slate-500 dark:text-slate-200">
+                    Bill to
+                  </p>
+                  <p className="text-lg font-bold my-2 dark:text-white">
+                    {data?.clientName}
+                  </p>
+                  <p className="text-sm  text-slate-500 dark:text-slate-200">
+                    {data?.clientName}
+                  </p>
+                  <p className="text-sm  text-slate-500 dark:text-slate-200">
+                    {data?.clientCity}
+                  </p>
+                  <p className="text-sm  text-slate-500 dark:text-slate-200">
+                    {data?.clientCountry || ""}
+                  </p>
+                </div>
               </div>
               {/* Sent to */}
-              <div>
+              <div className="mt-8 md:mt-0">
                 <p className="text-sm  text-slate-500 dark:text-slate-200">
                   Sent to
                 </p>
-                <p className="text-lg font-bold my-2 dark:text-white">
+                <p className="md:text-lg text-base md:font-bold font-medium my-2 dark:text-white">
                   {data?.clientEmail || ""}
                 </p>
               </div>
@@ -193,6 +194,14 @@ const SingleInvoicePage: React.FC<singleInvoiceProps> = ({}) => {
                   {grandTotal || 0.0}
                 </p>
               </div>
+            </div>
+            <div className="flex md:hidden items-center md:visible justify-between my-8">
+              <EditButton
+                setData={setData}
+                handleInvoiceVisible={handleInvoiceVisible}
+              />
+              <Deletebutton invoiceId={invoiceId} />
+              <PaidButton dataStatus={data} />
             </div>
           </div>
         </div>
