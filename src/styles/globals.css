@@ -18,10 +18,42 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  background: #D7DCDD;
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
+
+ :root{
+  --main-bg: #141625;
+  --bg: #1E2139; 
+  --input-bg: #252945; 
+  --dot-bg: rgba(223, 227, 250, 0.06);
+   --items-bg: #252945;
+   --total-bg: #0C0E16;
+  --text-bold: #FFFFFF; 
+   --text-regular: #DFE3FA;
+  --form-border: 0; 
+  --shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+
+ } 
+ @layer base{
+  body {
+      @apply dark:bg-gray-800 bg-white
+  }
+}
+
+ @layer utilities {
+  /* Chrome, Safari and Opera */
+ 
+ } .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
