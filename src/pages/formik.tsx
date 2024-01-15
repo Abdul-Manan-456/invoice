@@ -39,12 +39,6 @@ const FormikData: React.FC<formikDataProps> = ({
           <Form>
             <div className="mx-12 space-y-4 md:my-16 my-8 text-blue-600">
               <h1 className="md:mb-4 font-medium text-xl mb-2">Bill from</h1>
-              {/* <div
-                onClick={handleFakeData}
-                className="sm:h-12 flex items-center justify-center cursor-pointer bg-white hover:bg-blue-200 rounded-full w-32 "
-              >
-                Add Fake data
-              </div> */}
               <FormikInput
                 name="stAddressFrom"
                 type="string"

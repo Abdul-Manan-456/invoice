@@ -1,7 +1,6 @@
 import { create } from "zustand";
 import invoiceSchema, { Invoice } from "@/models/invoiceModel";
 import { v4 as uuidv4 } from "uuid";
-import { json } from "stream/consumers";
 
 interface InvoiceStore {
   invoices: Invoice[];
@@ -175,9 +174,11 @@ const useInvoicesStore: any = create<InvoiceStore>((set) => ({
       const uuid = uuidv4();
       const randomInvoice = generateInvoiceNumber();
       // invoiceSchema.validateSync(newInvoice, { abortEarly: false });
+      const storageInvoices = localStorage.getItem("invoices");
+      const parseInvoices = storageInvoices ? JSON.parse(storageInvoices) : [];
       set((state) => {
         const updatedInvoices = [
-          ...state.invoices,
+          ...parseInvoices,
           { ...newInvoice, id: uuid, invoiceNo: randomInvoice },
         ];
         localStorage.setItem("invoices", JSON.stringify(updatedInvoices));
