@@ -3,7 +3,6 @@ import Image from "next/image";
 import InvoiceButton from "./button/InvoiceButton";
 import React, { useState } from "react";
 import { Invoice as InvoiceModel } from "@/models/invoiceModel";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 interface invoiceProps {
@@ -35,14 +34,14 @@ const Invoice: React.FC<invoiceProps> = ({ filteredInvoices }) => {
               handleSingleInvoice(invoice.id);
             }}
             key={invoice.id}
-            className="lg:text-bold  bg-white rounded-lg lg:text-base text-xs  sm:p-4 p-3 md:my-5 my-3 flex justify-between w-full h-24 hover:cursor-pointer border border-transparent box-border hover:border hover:border-blue-500 dark:bg-medium"
+            className="lg:text-bold  bg-white rounded-lg lg:text-base text-xs md:text-sm  sm:p-4 p-3 md:my-5 my-3 flex justify-between w-full h-24 hover:cursor-pointer border border-transparent box-border hover:border hover:border-blue-500 dark:bg-medium"
           >
             <div className="flex md:flex-row flex-col justify-start md:items-center items-start w-3/5">
               <p className="md:mr-12 mr-8 mb-0.5">
                 <span className=" text-stone-500">#</span>
                 {invoice.invoiceNo}
               </p>
-              <p className="text-stone-500 font-medium  w-[150px]">
+              <p className="text-stone-500 font-medium mr-8 w-[150px]">
                 {invoice.clientCity}
               </p>
               <p className="text-stone-500 font-medium w-[150px]  ">

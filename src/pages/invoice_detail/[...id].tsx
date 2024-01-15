@@ -109,21 +109,21 @@ const SingleInvoicePage: React.FC<singleInvoiceProps> = ({}) => {
             </div>
             <div className="flex md:flex-row flex-col items-start justify-start md:my-8 my-4">
               {/* Bill To details */}
-              <div className="w-full flex itmes-center justify-start">
+              <div className="w-7/12 flex itmes-between justify-start">
                 <div>
                   <div className="mb-4 mr-36">
                     <p className="text-sm  text-slate-500 dark:text-slate-200">
                       invoice Date
                     </p>
-                    <p className="text-lg font-bold my-2 dark:text-white">
+                    <p className="md:text-base text-sm font-bold my-2 dark:text-white">
                       {data?.date}
                     </p>
                   </div>
                   <div>
-                    <p className="text-sm  text-slate-500 dark:text-slate-200">
+                    <p className="text-sm md:text-base text-slate-500 dark:text-slate-200">
                       Payment due
                     </p>
-                    <p className="md:text-lg text-sm font-bold my-2 dark:text-white">
+                    <p className="md:text-base text-sm font-bold my-2 dark:text-white">
                       2023-04-01
                     </p>
                   </div>
@@ -158,7 +158,7 @@ const SingleInvoicePage: React.FC<singleInvoiceProps> = ({}) => {
             </div>
 
             {/* -------- ITEM LIST DETAILS ------------------- */}
-            <div className="p-4 px-12 bg-[#F9FAFE] rounded-t-lg dark:bg-[#252945]">
+            <div className="md:p-4 md:px-12 p-3 bg-[#F9FAFE] rounded-t-lg dark:bg-[#252945]">
               {data?.items && (
                 <table className="w-full">
                   <thead className="text-left ">
@@ -185,10 +185,10 @@ const SingleInvoicePage: React.FC<singleInvoiceProps> = ({}) => {
                 </table>
               )}
             </div>
-            <div className="flex items-center justify-between text-white px-8 bg-[#373B53] p-6 rounded-b-lg dark:bg-[#0C0E16]">
-              <div className="text-sm">Amount Due</div>
+            <div className="flex items-center justify-between text-white md:px-8 px-4 bg-[#373B53] md:p-6 p-3 rounded-b-lg dark:bg-[#0C0E16]">
+              <div className="text-sm ">Amount Due</div>
 
-              <div className="text-3xl text-bold">
+              <div className="md:text-3xl text-xl text-bold">
                 <p>
                   <span>Rs. </span>
                   {grandTotal || 0.0}
