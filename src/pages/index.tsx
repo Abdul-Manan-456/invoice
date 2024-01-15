@@ -8,14 +8,11 @@ import Formik from "./formik";
 import useInvoicesStore from "@/store/invoiceStore";
 import { Invoice as InvoiceModel } from "@/models/invoiceModel";
 import createRandomUser from "@/models/userFaker";
+import { EmptyInvoices } from "@/components/items/EmptyInvoices";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  // useEffect(() => {
-
-  // }, []);
-
   const { invoices, addInvoice } = useInvoicesStore();
 
   const [isInvoiceVisible, setIsInvoiceVisible] = useState(false);
@@ -58,7 +55,11 @@ export default function Home() {
         {isInvoiceVisible && (
           <Formik handleInvoiceVisible={handleInvoiceVisible} />
         )}
-        <Invoice filteredInvoices={filteredInvoices} />
+        {filteredInvoices.length > 0 ? (
+          <Invoice filteredInvoices={filteredInvoices} />
+        ) : (
+          <EmptyInvoices />
+        )}
       </div>
 
       <Navbar />
